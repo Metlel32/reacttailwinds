@@ -56,10 +56,14 @@ function modalCambiar(){
 
                 
 
-                <div className="bg-blue-500 ">
-                    <button className="bg-yellow-500" onClick={modalCambiar}>Equipo</button>
-                </div>
+                
                 {botonModal && <Modal equipo={equipo}></Modal>} 
+                <div className="bg-violet-500  flex justify-center p-5 ">
+                    <button className="  text-center text-white text-2xl font-bold hover:bg-blue-600 hover:text-black bg-green-700 p-2 border-2 border-yellow-500 rounded-xl"  onClick={modalCambiar}>Equipo</button>
+                </div>
+
+
+
             <div className="flex flex-wrap justify-center bg-blue-200/90 ">
             {cards}
             </div>
@@ -77,7 +81,7 @@ function Modal({equipo}){
     let personaje = []
     equipo.forEach((e, i)=> {
         personaje.push(
-                <div key={i} className=" m-5 flex-none text-black-700 font-bold text-2xl bg-black text-center rounded-sm     ">
+                <div key={i} className=" m-5 flex-none text-black-700 font-bold text-2xl bg-black text-center rounded-sm   ">
                     <h2 className="font-bold text-white">{e.displayName}</h2>
 
                     <img className=" m-5"  src={e.displayIcon} alt="" />
@@ -91,7 +95,7 @@ function Modal({equipo}){
     return(
         <>
 
-        <h2 className="text-center text-3xl bg-purple-500 p-3">My team</h2>
+        <h2 className="text-center font-bold text-3xl bg-purple-500 p-3">My team</h2>
         <div  className="flex flex-wrap w-full justify-center  bg-purple-500">
             {personaje}   
         </div>
@@ -112,7 +116,7 @@ function Tarjeta ({personaje, agregarEquipo}){
                 <div className="w-full   h-full flex items-center rounded-sm  flex-col bg-black absolute -top-1 -left-1">
                     <img className="object-cover size-90 p-5" src={personaje.fullPortrait} alt="" />
 
-                    <button className="font-bold flex-none m-5 " onClick={() => agregarEquipo(personaje)}>Agregar a Equipo</button>
+                    <button className="font-bold bg-green-500 flex-none text-white m-5 border-2 border-amber-200 p-1 hover:bg-blue-800 rounded-lg " onClick={() => agregarEquipo(personaje)}>Agregar a Equipo</button>
                 </div>
 
             </div>

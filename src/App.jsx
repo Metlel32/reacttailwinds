@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './componentes/Header'
 import MainC from './componentes/MainC'
+import Footer from './componentes/Footer'
 
 
 
@@ -22,17 +23,20 @@ function App() {
   //funcion agregar la equipo
 
   function agregarEquipo(campeon){
-    if (equipo.length < 5) {
-      setEquipo([...equipo, campeon])
-    }else{
-      alert("Has alcanzado el limite para el equipo")
-    }
+
     
+    if (equipo.length < 5 && !equipo.includes(campeon)) {
+      setEquipo([...equipo, campeon])
+    }else if(equipo.length == 5 ){
+      alert("Has alcanzado el limite para el equipo")
+    }else{
+      alert("ya tienes a este campeon seleciona otro")
+    }
   }
 
 
 
- //roles
+ //roles 
 
  useEffect(() => {
     const rolesCa = []
@@ -56,7 +60,6 @@ function App() {
   //check
  function filtrarCheck(e){
     setCheck(e.target.value)
-    
  }
 
 
@@ -68,8 +71,6 @@ function App() {
     try{
       const rsp = await fetch(url)
       const data = await rsp.json()
-
-      
       return data;
     }catch(error){
       console.error("error fetching data", error)
@@ -100,15 +101,10 @@ function App() {
 
 
   return (
-
-
-
-
-
     <>
       {
         cargando ? (
-          <div ><p className='bg-yellow-300  text-5xl'>Cargando...</p></div>
+          <div className='w-full flex justify-center  '><p className='bg-yellow-300 w-full text-center h-full text-5xl'>Cargando...</p></div>
         ):(
         
           <>
@@ -117,12 +113,8 @@ function App() {
           </>
           )
       }
-
-      
+      <Footer></Footer>
     </>
-  
-
-
   )
 }
 

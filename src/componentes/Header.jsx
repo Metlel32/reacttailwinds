@@ -12,7 +12,7 @@ function Header({search, filtroBusqueda, check, filtrarCheck,  roles }){
     return(
         <div className="bg-red-400 w-full   top-0 flex justify-between px-2 p-4">
             <div className="w-3/5">
-                <h1 className="text-center mt-5 font-semibold">Valorant</h1>
+                <h1 className="text-center text-4xl mt-5 font-semibold">Valorant</h1>
 
             </div>
             <div className=" w-2/5 flex">
